@@ -2,8 +2,11 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="MovieTheaterSpringBoot.MovieTheaterSpringBoot" target="17" />
       <module name="MovieTheaterSpringBoot.MovieTheaterSpringBoot.main" target="17" />
+      <module name="MovieTheaterSpringBoot.MovieTheaterSpringBoot.main~1" target="17" />
       <module name="MovieTheaterSpringBoot.MovieTheaterSpringBoot.test" target="17" />
+      <module name="MovieTheaterSpringBoot.MovieTheaterSpringBoot.test~1" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
