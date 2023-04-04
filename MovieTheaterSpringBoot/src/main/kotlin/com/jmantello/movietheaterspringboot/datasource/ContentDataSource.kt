@@ -5,5 +5,6 @@ import com.jmantello.movietheaterspringboot.model.Content
 interface ContentDataSource {
 
     fun retrieveContent(): Collection<Content>
+    fun retrieveContent(contentId: Int): Content
 
 }

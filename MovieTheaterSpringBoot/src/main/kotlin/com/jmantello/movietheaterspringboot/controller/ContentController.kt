@@ -3,6 +3,7 @@ package com.jmantello.movietheaterspringboot.controller
 import com.jmantello.movietheaterspringboot.model.Content
 import com.jmantello.movietheaterspringboot.service.ContentService
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController
 class ContentController(private val service: ContentService) {
 
     @GetMapping("all")
-    fun getContent(): Collection<Content> {
-        return service.getContent()
-    }
+    fun getContent(): Collection<Content> = service.getContent()
+
+    @GetMapping("/{contentId}")
+    fun getContent(@PathVariable contentId: Int): Content = service.getContent(contentId)
+
 }

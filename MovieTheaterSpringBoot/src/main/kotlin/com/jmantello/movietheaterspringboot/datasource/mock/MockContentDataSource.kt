@@ -14,4 +14,5 @@ class MockContentDataSource : ContentDataSource {
     )
 
     override fun retrieveContent(): Collection<Content> = content
+    override fun retrieveContent(contentId: Int): Content = content[contentId]
 }

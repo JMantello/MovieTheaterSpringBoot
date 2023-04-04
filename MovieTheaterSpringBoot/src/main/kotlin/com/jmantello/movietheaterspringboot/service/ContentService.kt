@@ -8,4 +8,5 @@ import org.springframework.stereotype.Service
 class ContentService(private val dataSource: ContentDataSource) {
 
     fun getContent(): Collection<Content> = dataSource.retrieveContent()
+    fun getContent(contentId: Int): Content = dataSource.retrieveContent(contentId)
 }
