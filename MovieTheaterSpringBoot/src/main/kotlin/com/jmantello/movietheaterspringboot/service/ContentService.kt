@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
 
 @Service
-class ContentService(@Qualifier("Mock") private val dataSource: ContentDataSource) {
+class ContentService(@Qualifier("mock") private val dataSource: ContentDataSource) {
 
     fun getContent(): Collection<Content> = dataSource.retrieveContent()
     fun getContent(contentId: Int): Content = dataSource.retrieveContent(contentId)
