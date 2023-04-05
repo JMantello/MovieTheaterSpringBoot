@@ -14,5 +14,10 @@ class MockContentDataSource : ContentDataSource {
     )
 
     override fun retrieveContent(): Collection<Content> = content
-    override fun retrieveContent(contentId: Int): Content = content[contentId]
+    override fun retrieveContent(contentId: Int): Content {
+        if(contentId < 0 || contentId > content.size - 1)
+            throw NoSuchElementException("No content with that id")
+
+        return content[contentId]
+    }
 }
