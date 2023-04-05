@@ -13,9 +13,13 @@ class MockContentDataSource : ContentDataSource {
         Content("Title3", "Description3", "Genre3", "imageUrl3"),
     )
 
+    fun contentExists(contentId: Int): Boolean {
+        return !(contentId < 0 || contentId > content.size - 1)
+    }
+
     override fun retrieveContent(): Collection<Content> = content
     override fun retrieveContent(contentId: Int): Content {
-        if(contentId < 0 || contentId > content.size - 1)
+        if(!contentExists(contentId))
             throw NoSuchElementException("No content with that id")
 
         return content[contentId]
@@ -26,4 +30,18 @@ class MockContentDataSource : ContentDataSource {
         return content
     }
 
+    override fun updateContent(contentId: Int, content: Content): Content {
+        if(!contentExists(contentId))
+            throw NoSuchElementException("No content with that id")
+
+        this.content[contentId] = content
+        return content
+    }
+
+    override fun deleteContent(contentId: Int) {
+        if(!contentExists(contentId))
+            throw NoSuchElementException("No content with that id")
+
+        content.removeAt(contentId)
+    }
 }

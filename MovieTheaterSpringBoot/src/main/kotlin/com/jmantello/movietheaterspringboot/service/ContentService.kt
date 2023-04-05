@@ -10,4 +10,6 @@ class ContentService(private val dataSource: ContentDataSource) {
     fun getContent(): Collection<Content> = dataSource.retrieveContent()
     fun getContent(contentId: Int): Content = dataSource.retrieveContent(contentId)
     fun addContent(content: Content) = dataSource.createContent(content)
+    fun updateContent(contentId: Int, content: Content) = dataSource.updateContent(contentId, content)
+    fun deleteContent(contentId: Int) = dataSource.deleteContent(contentId)
 }

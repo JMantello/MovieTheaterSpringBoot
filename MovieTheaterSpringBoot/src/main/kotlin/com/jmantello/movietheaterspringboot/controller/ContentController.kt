@@ -2,10 +2,13 @@ package com.jmantello.movietheaterspringboot.controller
 
 import com.jmantello.movietheaterspringboot.model.Content
 import com.jmantello.movietheaterspringboot.service.ContentService
+import org.springframework.http.HttpRequest
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PatchMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -37,4 +40,14 @@ class ContentController(private val service: ContentService) {
         service.addContent(content)
         return content
     }
+
+    @PatchMapping("/{contentId}")
+    fun updateContent(@PathVariable contentId: Int, @RequestBody content: Content): Content {
+        service.updateContent(contentId, content)
+        return content
+    }
+
+    @DeleteMapping("/{contentId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun deleteContent(@PathVariable contentId: Int) = service.deleteContent(contentId)
 }
