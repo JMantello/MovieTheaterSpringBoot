@@ -2,10 +2,15 @@ package com.jmantello.movietheaterspringboot.datasource.mock
 
 import com.jmantello.movietheaterspringboot.datasource.ContentDataSource
 import com.jmantello.movietheaterspringboot.model.Content
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Repository
 
-@Repository
+
+@Repository("Mock")
 class MockContentDataSource : ContentDataSource {
+
+    @Value("\${apiKey}")
+    private lateinit var apiKey: String
 
     val content = mutableListOf(
         Content("Title1", "Description1", "Genre1", "imageUrl1"),

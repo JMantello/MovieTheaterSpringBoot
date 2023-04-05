@@ -2,10 +2,11 @@ package com.jmantello.movietheaterspringboot.service
 
 import com.jmantello.movietheaterspringboot.datasource.ContentDataSource
 import com.jmantello.movietheaterspringboot.model.Content
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Service
 
 @Service
-class ContentService(private val dataSource: ContentDataSource) {
+class ContentService(@Qualifier("Mock") private val dataSource: ContentDataSource) {
 
     fun getContent(): Collection<Content> = dataSource.retrieveContent()
     fun getContent(contentId: Int): Content = dataSource.retrieveContent(contentId)
